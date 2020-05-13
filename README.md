@@ -5,4 +5,9 @@
 
 Basic models:<br />
 
+- `Subject`
+- `Course`
+- `Module`
+
+
 Other functionality:<br />
