@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
+from django.urls import reverse
 
 from courses.fields import OrderField
 
@@ -27,6 +28,9 @@ class Course(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
     overview = models.TextField()
+    image = models.ImageField(upload_to='courses_images/%Y/%m/%d',
+                              blank=True,
+                              null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -35,6 +39,25 @@ class Course(models.Model):
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = self.title
+        super().save(*args, **kwargs)
+
+    @property
+    def image_url(self):
+        if self.image and hasattr(self.image, 'url'):
+            return self.image.url
+
+    # def get_absolute_url(self):
+    #     return reverse('courses:course_detail', kwargs={'slug': self.slug})
+
+    def get_update_url(self):
+        return reverse('courses:course_update', kwargs={'slug': self.slug})
+
+    def get_delete_url(self):
+        return reverse('courses:course_delete', kwargs={'slug': self.slug})
 
 
 class Module(models.Model):

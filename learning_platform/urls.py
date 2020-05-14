@@ -25,6 +25,7 @@ urlpatterns = [
 
     path('', BaseView.as_view(), name='home_page'),
     path('user/', include(('user.urls', 'user'), namespace='user')),
+    path('courses/', include(('courses.urls', 'courses'), namespace='courses')),
 
 ]
 

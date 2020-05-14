@@ -5,11 +5,10 @@
 
 Basic models:<br />
 
-- `Subject`
 - `Course`
+- `Subject`
 - `Module`
 - `Content`
 - `ItemBase` (abstract parent class for `Text, File, Image, Video` classes)
-
 
 Other functionality:<br />
