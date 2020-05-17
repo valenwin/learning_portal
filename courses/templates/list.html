@@ -40,6 +40,9 @@
                             <h2>{{ course.title }}</h2>
                             <a href="{{ course.get_update_url }}" class="btn btn-outline-warning">Edit</a>
                             <a href="{{ course.get_delete_url }}" class="btn btn-outline-danger">Delete</a>
+                            <a href="{% url "courses:course_module_update" course.id %}" class="btn btn-outline-info">
+                                Edit modules
+                            </a>
                         </a>
                     </div>
                 {% empty %}
