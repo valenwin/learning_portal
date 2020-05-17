@@ -74,9 +74,6 @@ class Module(models.Model):
     def __str__(self):
         return f'{self.order}: {self.title}'
 
-    def get_update_url(self):
-        return reverse('courses:course_module_update', kwargs={'id': self.id})
-
 
 class Content(models.Model):
     module = models.ForeignKey(Module,
