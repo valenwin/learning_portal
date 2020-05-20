@@ -21,9 +21,9 @@
                     <li data-id="{{ m.id }}" {% if m == module %}
                         class="selected"{% endif %}>
                         <a href="{% url "courses:module_content_list" m.id %}">
-              <span>
-                Module <span class="order">{{ m.order|add:1 }}</span>
-              </span>
+                            <span>
+                                Module <span class="order">{{ m.order|add:1 }}</span>
+                            </span>
                             <br>
                             {{ m.title }}
                         </a>
