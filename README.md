@@ -12,3 +12,4 @@ Basic models:<br />
 - `ItemBase` (abstract parent class for `Text, File, Image, Video` classes)
 
 Other functionality:<br />
+- `AJAX and jQuery` for reorder modules
